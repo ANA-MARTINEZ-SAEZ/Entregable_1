@@ -1,7 +1,7 @@
 """Esquemas Pydantic para validar datos de tareas."""
 
 from decimal import Decimal
-from typing import Literal
+from typing import Literal, Optional
 
 from pydantic import BaseModel, Field, field_validator
 
@@ -30,16 +30,16 @@ class TaskCreate(BaseModel):
 class TaskUpdate(BaseModel):
     """Datos opcionales para actualizar una tarea."""
 
-    title: str | None = None
-    description: str | None = None
-    priority: PriorityValue | None = None
-    effort_hours: Decimal | None = Field(default=None, ge=0)
-    status: StatusValue | None = None
-    assigned_to: str | None = None
+    title: Optional[str] = None
+    description: Optional[str] = None
+    priority: Optional[PriorityValue] = None
+    effort_hours: Optional[Decimal] = Field(default=None, ge=0)
+    status: Optional[StatusValue] = None
+    assigned_to: Optional[str] = None
 
     @field_validator("title", "assigned_to")
     @classmethod
-    def validate_optional_non_empty_text(cls, value: str | None) -> str | None:
+    def validate_optional_non_empty_text(cls, value: Optional[str]) -> Optional[str]:
         if value is not None and not value.strip():
             raise ValueError("Este campo no debe estar vacío.")
         return value
