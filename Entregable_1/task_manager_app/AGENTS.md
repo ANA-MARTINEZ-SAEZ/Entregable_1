@@ -26,8 +26,7 @@ El documento principal de planificación es `plan.md`. Debe respetarse durante t
 - No rehacer el proyecto desde cero si ya existe código funcional.
 - No eliminar archivos, clases, métodos o pruebas sin justificación.
 - No cambiar la arquitectura definida en `plan.md` salvo que sea necesario y esté justificado.
-- Mantener el código claro, sencillo y adecuado para una práctica académica.
-- Priorizar cumplir el enunciado y la rúbrica antes que añadir funcionalidades avanzadas.
+- Mantener el código claro, sencillo 
 - No usar base de datos. La persistencia debe hacerse en `data/tasks.json`.
 - No añadir autenticación, JWT, usuarios reales ni funcionalidades futuras salvo que se pidan expresamente.
 
